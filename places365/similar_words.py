@@ -1,4 +1,4 @@
-import  gensim.downloader as api
+import gensim.downloader as api
 from run_placesCNN_basic import get_image_tags
 
 if __name__ == "__main__":
