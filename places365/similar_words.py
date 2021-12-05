@@ -51,6 +51,8 @@ def similar(img):
     for weight, base_word in base_words:
         for i, mood in enumerate(scenes):
             try:
+                base_word = base_word.split('_')[0]
+                base_word = base_word.split('/')[0]
                 cur_similarity = model.similarity(base_word, mood.lower())
     
                 #print(cur_similarity)
