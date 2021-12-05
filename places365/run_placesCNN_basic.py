@@ -12,7 +12,7 @@ import os
 from PIL import Image
 
 
-def get_image_tags(image, arch='resnet50'):
+def get_image_tags(img, arch='resnet50'):
     # th architecture to use
     # arch = 'resnet50'
 
@@ -48,12 +48,12 @@ def get_image_tags(image, arch='resnet50'):
     classes = tuple(classes)
 
     # load the test image
-    img_name = 'images/' + image
-    if not os.access(img_name, os.W_OK):
-        img_url = 'http://places.csail.mit.edu/demo/' + img_name
-        os.system('wget ' + img_url)
+    # img_name = 'images/' + image
+    # if not os.access(img_name, os.W_OK):
+    #     img_url = 'http://places.csail.mit.edu/demo/' + img_name
+    #     os.system('wget ' + img_url)
 
-    img = Image.open(img_name)
+    #img = Image.open(img_name)
     input_img = V(centre_crop(img).unsqueeze(0))
 
     # forward pass
@@ -63,10 +63,10 @@ def get_image_tags(image, arch='resnet50'):
 
     results = []
 
-    print('{} prediction on {}'.format(arch, img_name))
+    #print('{} prediction on {}'.format(arch, img_name))
     # output the prediction
-    for i in range(0, 10):
-        print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))
+    for i in range(0, 5):
+        #print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))
         results.append((float(probs[i]), classes[idx[i]]))
 
     return results
