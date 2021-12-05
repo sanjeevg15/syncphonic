@@ -7,9 +7,9 @@ from visualize import display_pca_scatterplot
 # if __name__ == "__main__":
 
 def similar(img):
-    #info = api.info()
-    #model = api.load("word2vec-google-news-300")
-    model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
+    info = api.info()
+    model = api.load("word2vec-google-news-300")
+    #model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
 
     # moods = ['Uplifting',
     #          'Epic',
