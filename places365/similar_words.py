@@ -2,7 +2,7 @@ import gensim.downloader as api
 from gensim.models import KeyedVectors
 from run_placesCNN_basic import get_image_tags
 
-from visualize import display_pca_scatterplot
+#from visualize import display_pca_scatterplot
 
 # if __name__ == "__main__":
 
