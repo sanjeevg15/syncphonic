@@ -24,7 +24,7 @@ if __name__ == "__main__":
              'Dramatic',
              'Angry',
              'Tense',
-             'Sad', ]
+             'Sad']
 
     base_words = get_image_tags('12.jpg')
 
