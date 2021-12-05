@@ -35,7 +35,7 @@ def similar(img):
             'Nature',
             'Sports',
             'Food',
-            'City']
+            'Building']
 
     scene_info = []
 
@@ -55,7 +55,7 @@ def similar(img):
     
                 #print(cur_similarity)
                 mood_similarities[i] += weight * cur_similarity
-                #print("Similarity between {} and {}".format(base_word, mood.lower()), cur_similarity)
+                print("Similarity between {} and {}".format(base_word, mood.lower()), cur_similarity)
             except:
                 continue
 
@@ -64,8 +64,8 @@ def similar(img):
     sorted_moods = [y for x, y in sorted(zip(mood_similarities, scenes), key=lambda x: x[0])]
     sorted_moods.reverse()
 
-    # print(list(zip(scenes, mood_similarities)))
-    # print(sorted_moods)
+    print(list(zip(scenes, mood_similarities)))
+    print(sorted_moods)
 
     sorted_moods = [x.lower() for x in sorted_moods]
 
