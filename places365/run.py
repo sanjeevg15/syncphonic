@@ -14,40 +14,44 @@ if __name__ == "__main__":
 
     path = "images"
 
-    scene_info = []
-    overall_theme = {}
-
     for image_path in os.listdir(path):
-        input_path = os.path.join(path, image_path)
 
-        # img = Image.open("images/trek.jpeg")
-        img = Image.open(input_path)
-        img_desc, img_theme = similar(img)
+        scene_info = []
+        overall_theme = {}
 
-        scene_info.append(img_desc)
-        if (img_theme not in overall_theme):
-            overall_theme[img_theme] = 1
-        else:
-            overall_theme[img_theme] += 1
+        for vid_name in os.listdir(os.path.join(path, image_path)):
+            print(path, image_path, vid_name)
+            input_path = os.path.join(path, image_path, vid_name)
 
-        # print(scene_info)
-        # print(final_mood)
-        # print("_________________")
+            # img = Image.open("images/trek.jpeg")
+            img = Image.open(input_path)
+            img_desc, img_theme = similar(img)
 
-    scene_info = list(np.concatenate(scene_info).flat)
+            scene_info.append(img_desc)
+            if img_theme not in overall_theme:
+                overall_theme[img_theme] = 1
+            else:
+                overall_theme[img_theme] += 1
 
-    cleaned_scene_info = []
+            # print(scene_info)
+            # print(final_mood)
+            # print("_________________")
 
-    for scene in scene_info:
-        scene = scene.split('_')[0]
-        scene = scene.split('/')[0]
-        cleaned_scene_info.append(scene)
+        scene_info = list(np.concatenate(scene_info).flat)
 
-    print(cleaned_scene_info)
-    print(overall_theme)
+        cleaned_scene_info = []
 
-    final_theme = max(overall_theme, key=overall_theme.get)
-    print(final_theme)
+        for scene in scene_info:
+            scene = scene.split('_')[0]
+            scene = scene.split('/')[0]
+            cleaned_scene_info.append(scene)
 
-    # model = KeyedVectors.load_word2vec_format('D:/Fall 2021/Deep Learning for Text Data - CSE 8803 DLT/PROJECT/SYNCPHONIC/places365/GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
+        print(cleaned_scene_info)
+        print(overall_theme)
+
+        final_theme = max(overall_theme, key=overall_theme.get)
+        print(final_theme)
+
+    # model = KeyedVectors.load_word2vec_format('D:/Fall 2021/Deep Learning for Text Data - CSE 8803
+    # DLT/PROJECT/SYNCPHONIC/places365/GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
     # display_pca_scatterplot(model, cleaned_scene_info, moods, video_themes)
