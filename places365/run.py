@@ -1,6 +1,6 @@
 from torch.nn.functional import fractional_max_pool2d
 from similar_words import similar
-from visualize import display_pca_scatterplot
+#from visualize import display_pca_scatterplot
 from PIL import Image
 from gensim.models import KeyedVectors
 import numpy as np
