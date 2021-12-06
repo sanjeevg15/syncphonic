@@ -31,11 +31,7 @@ def similar(img):
     #          'Tense',
     #          'Sad', ]
 
-    scenes = ['Travel',
-            'Nature',
-            'Sports',
-            'Food',
-            'Building']
+    scenes = ['Landscape', 'Nature', 'Sports', 'Food', 'Buildings', 'Art', 'Technology' , 'Roadtrip']
 
     scene_info = []
 
